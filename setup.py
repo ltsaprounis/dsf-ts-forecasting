@@ -1,4 +1,4 @@
-__author__ = ["author name"]
+__author__ = ["Leonidas Tsaprounis"]
 
 from setuptools import setup, find_packages
 
@@ -6,8 +6,8 @@ setup(
     name="dsf_utils",
     version="0.0.0",
     packages=find_packages(),
-    description="package description",
-    author="author name",
+    description="utility functions and classes for the DSF presentation",
+    author="Leonidas Tsaprounis",
     install_requires=[
         "sktime",
     ],
