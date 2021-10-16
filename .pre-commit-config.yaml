@@ -1,0 +1,19 @@
+repos:
+# Linting
+- repo: https://github.com/pycqa/flake8
+  rev: 3.9.2 # can also add a git hash or tag
+  hooks:
+  - id: flake8
+
+# Documnetation
+-   repo: https://github.com/pycqa/pydocstyle
+    rev: 6.1.1  # pick a git hash / tag to point to
+    hooks:
+    -   id: pydocstyle
+        files: ^examplepackage/
+
+# OPTIONAL: strips out the data and output cells from notebooks
+- repo: https://github.com/kynan/nbstripout
+  rev: 0.5.0
+  hooks:
+    - id: nbstripout

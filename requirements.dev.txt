@@ -1,0 +1,6 @@
+flake8
+black
+pytest
+pydocstyle
+pre-commit
+ipykernel
