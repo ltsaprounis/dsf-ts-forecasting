@@ -10,5 +10,8 @@ setup(
     author="Leonidas Tsaprounis",
     install_requires=[
         "sktime",
+        "epiweeks",
+        "seaborn",
+        "ipywidgets",
     ],
 )
