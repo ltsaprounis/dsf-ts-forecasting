@@ -10,7 +10,7 @@ repos:
     rev: 6.1.1  # pick a git hash / tag to point to
     hooks:
     -   id: pydocstyle
-        files: ^dsf_uitls/*
+        files: ^dsf_utils/
         exclude: ^dsf_uitls/test/
 
 # OPTIONAL: strips out the data and output cells from notebooks
