@@ -1,48 +1,8 @@
-"""
-Extension template for forecasters.
-
-Purpose of this implementation template:
-    quick implementation of new estimators following the template
-    NOT a concrete class to import! This is NOT a base class or concrete class!
-    This is to be used as a "fill-in" coding template.
-
-How to use this implementation template to implement a new estimator:
-- make a copy of the template in a suitable location, give it a descriptive name.
-- work through all the "todo" comments below
-- fill in code for mandatory methods, and optionally for optional methods
-- you can add more private methods, but do not override BaseEstimator's private methods
-    an easy way to be safe is to prefix your methods with "_custom"
-- change docstrings for functions and the file
-- ensure interface compatibility by testing forecasting/tests/test_all_forecasters
-        and forecasting/tests/test_sktime_forecasters
-- once complete: use as a local library, or contribute to sktime via PR
-
-Mandatory implements:
-    fitting         - _fit(self, y, X=None, fh=None)
-    forecasting     - _predict(self, fh=None, X=None, return_pred_int=False,
-                               alpha=DEFAULT_ALPHA)
-
-Optional implements:
-    updating        - _update(self, y, X=None, update_params=True):
-    fitted parameter inspection - get_fitted_params()
-
-State:
-    fitted model/strategy   - by convention, any attributes ending in "_"
-    fitted state flag       - is_fitted (property)
-    fitted state inspection - check_is_fitted()
-
-Testing:
-    get default parameters for test instance(s) - get_test_params()
-    create a test instance of estimator class   - create_test_instance()
-
-copyright: sktime developers, BSD-3-Clause License (see LICENSE file)
-"""
+"""Add a constant value as the forecast"""
 
 from sktime.forecasting.base import BaseForecaster
 from sktime.forecasting.base._base import DEFAULT_ALPHA
 import pandas as pd
-
-# todo: add any necessary imports here
 
 
 class ConstantValueForecaster(BaseForecaster):
