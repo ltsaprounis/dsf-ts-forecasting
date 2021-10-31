@@ -47,7 +47,7 @@ def single_region_ts(df, region, y_name="ILITOTAL"):
     """
     df = df.copy()
     df = df[df["REGION"] == region]
-    df["ds_wsun"] = pd.PeriodIndex(df["ds_wsun"])
+    df["ds_wsun"] = pd.PeriodIndex(df["ds_wsun"], freq="W-SUN")
     df = df.set_index("ds_wsun")
     series = df[y_name]
     series = series.sort_index()

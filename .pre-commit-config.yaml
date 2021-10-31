@@ -5,13 +5,13 @@ repos:
   hooks:
   - id: flake8
 
-# Documnetation
--   repo: https://github.com/pycqa/pydocstyle
-    rev: 6.1.1  # pick a git hash / tag to point to
-    hooks:
-    -   id: pydocstyle
-        files: ^dsf_utils/
-        exclude: ^dsf_utils/test/
+# # Documnetation
+# -   repo: https://github.com/pycqa/pydocstyle
+#     rev: 6.1.1  # pick a git hash / tag to point to
+#     hooks:
+#     -   id: pydocstyle
+#         files: ^dsf_utils/
+#         exclude: ^dsf_utils/test/
 
 # OPTIONAL: strips out the data and output cells from notebooks
 # - repo: https://github.com/kynan/nbstripout
