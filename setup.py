@@ -9,9 +9,11 @@ setup(
     description="utility functions and classes for the DSF presentation",
     author="Leonidas Tsaprounis",
     install_requires=[
-        # "sktime",
+        "sktime",
         "epiweeks",
         "seaborn",
         "ipywidgets",
+        "tbats",
+        "lightgbm",
     ],
 )

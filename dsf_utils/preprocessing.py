@@ -29,22 +29,6 @@ def epiweeks_from_df(year_week_row):
 
 
 def single_region_ts(df, region, y_name="ILITOTAL"):
-    """Get a single region
-
-    Parameters
-    ----------
-    df : [type]
-        [description]
-    region : [type]
-        [description]
-    y_name : str, optional
-        [description], by default "ILITOTAL"
-
-    Returns
-    -------
-    [type]
-        [description]
-    """
     df = df.copy()
     df = df[df["REGION"] == region]
     df["ds_wsun"] = pd.PeriodIndex(df["ds_wsun"], freq="W-SUN")
