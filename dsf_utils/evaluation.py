@@ -91,3 +91,55 @@ def display_results(df, axis=0):
     )
 
     display(results)
+
+
+def evaluate_panel_forecaster_on_cutoffs(
+    panel_df: pd.DataFrame,
+    cutoffs: list,
+    forecaster,
+    metric,
+    fh: np.array = np.arange(3) + 1,
+    window_length: int = 5 * 52,
+    freq="W-SUN",
+    ts_id_col="REGION",
+    target="ILITOTAL",
+) -> pd.DataFrame:
+    _panel_df = panel_df.copy()
+    _panel_df = _panel_df.sort_values(by=[ts_id_col]).sort_index()
+    ts_list = list(panel_df[ts_id_col].unique())
+
+    results = pd.DataFrame()
+    for cutoff in cutoffs:
+        _forecaster = deepcopy(forecaster)
+        cutoff = pd.Period(cutoff, freq=freq) + 1
+        train_df = _panel_df[
+            (_panel_df.index <= cutoff) & (_panel_df.index > cutoff - window_length)
+        ].sort_index()
+        min_test_date = cutoff + int(np.min(fh))
+        max_test_date = cutoff + int(np.max(fh))
+        test_df = _panel_df[
+            (_panel_df.index >= min_test_date) & (_panel_df.index <= max_test_date)
+        ]
+        # if forecaster doesn't need fh in fit fh will be ignored.
+        _forecaster.fit(train_df, fh=fh)
+        pred_df = _forecaster.predict(fh=fh)
+
+        # loop over regions to get region level metrics and y_preds
+        for ts in ts_list:
+            _pred = pred_df[pred_df[ts_id_col] == ts]["y_pred"]
+            _test = test_df[test_df[ts_id_col] == ts][target]
+            _train = train_df[train_df[ts_id_col] == ts][target].sort_index()
+            score = metric(y_true=_test, y_pred=_pred, y_train=_train)
+            results = results.append(
+                {
+                    ts_id_col: ts,
+                    "cutoff": cutoff,
+                    "Metric": metric.name,
+                    "Score": score,
+                    "y_test": _test,
+                    "y_pred": _pred,
+                },
+                ignore_index=True,
+            )
+
+    return results
