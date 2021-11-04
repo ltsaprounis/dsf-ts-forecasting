@@ -74,7 +74,11 @@ for(i in 1:nrow(TS_unique)){
     .id ==PLOT_ID &
     .model %in% PLOT_MODELS
     ) %>% 
-    autoplot(cv_data %>% filter(week_date >= MMWRweek2Date(2018, 1)), level=NULL) + labs(title = sprintf("%s %s", PLOT_REGION, PLOT_ID))
+    autoplot(cv_data %>% 
+  filter(
+    week_date >= MMWRweek2Date(2018, 1)), 
+    level=NULL
+  ) + labs(title = sprintf("%s %s", PLOT_REGION, PLOT_ID))
   print(plot)
 }
 dev.off() 
