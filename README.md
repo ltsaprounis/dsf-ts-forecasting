@@ -6,7 +6,7 @@ Time Series Forecasting in Python - Data Science Festival - GSK
 * Naive Benchmarks
 * Evaluation metrics
 * Time Series Cross Validation 
-* Exponential Smoothing 
+* Statistical Methods - Exponential Smoothing, ARIMA, TBATS
 * Machine Learning for time-series forecasting
   * direct approach
   * recursive features
