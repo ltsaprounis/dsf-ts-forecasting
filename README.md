@@ -1,5 +1,6 @@
 # dsf-ts-forecasting
-Time Series Forecasting in Python - Data Science Festival - GSK
+Time Series Forecasting in Python - Data Science Festival - GSK.  
+:tv: the workshop recording is available here -> https://online.datasciencefestival.com/talks/workshop/
 
 ## Contents
 * Time Series EDA
